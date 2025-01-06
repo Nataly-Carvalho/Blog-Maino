@@ -1,0 +1,39 @@
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-4 ">
+        <h2 class="text-center">Entrar</h2>
+
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form-login" }) do |f| %>
+          <div class="mb-3">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Digite seu email" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :password, class: "form-label" %>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Digite sua senha senha" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+            <div class="form-check mb-3">
+              <%= f.check_box :remember_me, class: "form-check-input", id: "remember_me" %>
+              <%= f.label :remember_me, class: "form-check-label", for: "remember_me" %>
+            </div>
+          <% end %>
+          <div class="row mt-5 text-center">
+            <div class="col-md-5">
+              <div class="d-grid gap-2">
+                <%= f.submit "Log in", class: "btn btn-primary btn-block" %>
+              </div>
+              <% end %>
+            </div>
+            <div class="col-md-5">
+              <div class="d-grid gap-2 ">
+                <%= render "devise/shared/links" %>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
+
